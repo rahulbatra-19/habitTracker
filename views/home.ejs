@@ -1,1 +1,40 @@
-<%=title%>
+    <a href="/habit/week">Past Days</a>
+   
+   <form action="/habit/create" method="post">
+        <input type="text" name="habitName" placeholder="Enter your habit name: ">
+        <input type="submit" value="Submit">
+    </form>
+
+    <ul id="habits">
+        <%for(habit of habits){%>
+            <li id="<%=habit._id%>">
+                <a href="/habit/destroy/<%=habit._id%>">X</a>
+                <span id="habitName">
+                    <%=habit.habitName%>
+                </span>
+
+                <span id="habitStatus">
+                    <a href="/habit/changeStatus/<%=habit._id%>">
+
+                        <%=habit.habitStatus[0].status%>
+                    </a>
+                </span>
+
+                <span id="date">
+
+                    <%if(habit.habitStatus[0].date.getHours()>12){%>
+                        <%=habit.habitStatus[0].date.getHours()-12%> :
+                            <%=habit.habitStatus[0].date.getMinutes()%> PM
+
+                                <%}else{%>
+                                    <%=habit.habitStatus[0].date.getHours()%> :
+                                        <%=habit.habitStatus[0].date.getMinutes()%> AM
+
+
+                                            <%}%>
+                </span>
+
+            </li>
+            <%}%>
+
+    </ul>
