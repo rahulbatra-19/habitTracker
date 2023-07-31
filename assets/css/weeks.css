@@ -1,0 +1,19 @@
+span{
+    margin-right: 5%;
+}
+b{
+    width: 10%;
+    padding: 5px;
+}
+
+#Dates{
+    width: 40%;
+    margin: auto;
+}
+.week-status{
+    width: 40%;
+    margin: auto;
+}
+.week-status span{
+    margin-right: 7%;
+}

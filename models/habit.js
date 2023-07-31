@@ -13,7 +13,7 @@ const habitSchema = new mongoose.Schema({
     habitStatus: [
         {
           date: { type: Date, required: true },
-          status: { type: String, enum: ['done', 'not_done', 'none'], required: true },
+          status: { type: String, enum: ['done', 'not_done', 'none'], required: true }
         },
       ]
 },{

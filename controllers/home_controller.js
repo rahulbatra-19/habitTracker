@@ -7,6 +7,11 @@ module.exports.home = async function(req, res){
         }
 
         let habits = await Habit.find({user: req.user}).sort('-createdAt');
+
+        for(let habit of habits ){
+            // console.log(habit);s
+            habit.save();
+        }
         // console.log(habits);
         
         res.render('home',{

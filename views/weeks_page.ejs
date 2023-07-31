@@ -1,5 +1,41 @@
-<%=title%>
-
+<link rel="stylesheet" href="/css/weeks.css">
+<a href="/habit">Daily view</a>
 <div id="week-view">
+    <p id="Dates">
+    </p>
+
+
+
+<%for(habit of habits){%>
+    <b id="name">  
+        <%=habit.habitName%>
+        </b>
+<p class="week-status">
     
+    <%for(let i=0;i<habit.habitStatus.length;i++){%>
+    <span>
+        <a href="/habit/changeStatus/<%=habit._id%>/<%=i%>">
+            <%=habit.habitStatus[i].status%>
+        </a> 
+    </span>
+    <%}%>
+</p>
+<%}%>
 </div>
+
+
+<script>
+    var monthNames = [
+                "January", "February", "March", "April", "May", "June", "July",
+                "August", "September", "October", "November", "December"
+            ];
+    for (let i = 0; i < 7; i++) {
+        let currentDate = new Date();
+        currentDate.setDate(currentDate.getDate()-i);
+        let $spanElement = $('<span>');
+            $spanElement.text(currentDate.getDate()+" "+ monthNames[currentDate.getMonth()]);
+            $spanElement.css('margin-right', '5%');
+        $('#Dates').append($spanElement);
+    }
+
+</script>
