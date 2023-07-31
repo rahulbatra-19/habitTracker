@@ -41,10 +41,3 @@ habitTracker/
   ├── package-lock.json
   ├── .gitignore
   └── Readme.md
-
-
-
-
-
-
-
