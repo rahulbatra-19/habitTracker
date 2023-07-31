@@ -85,7 +85,7 @@ module.exports.weeks = async function (req, res) {
     }
 }
 
-cron.schedule('0 0 * * * * *', async () => {
+cron.schedule('0 0 * * *', async () => {
     try {
         const habits = await Habit.find();
         const today = new Date();

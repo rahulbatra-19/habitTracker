@@ -1,39 +1,55 @@
-  <link rel="stylesheet" href="/css/home.css"> 
-   <form action="/habit/create" method="post">
-        <input type="text" name="habitName" placeholder="Enter your habit name: ">
-        <input type="submit" value="Submit">
-    </form>
+<link rel="stylesheet" href="/css/home.css">
+<form action="/habit/create" method="post">
+    <input type="text" name="habitName" placeholder="Habit name: ">
+    <input type="submit" value="Submit">
+</form>
 
-    <ul id="habits">
-        <%for(habit of habits){%>
-            <li id="<%=habit._id%>">
-                <a href="/habit/destroy/<%=habit._id%>">X</a>
-                <span id="habitName">
-                    <%=habit.habitName%>
-                </span>
-
-                <span id="habitStatus">
-                    <a href="/habit/changeStatus/<%=habit._id%>/0">
-
-                        <%=habit.habitStatus[0].status%>
-                    </a>
-                </span>
-
-                <span id="date">
-
-                    <%if(habit.habitStatus[0].date.getHours()>12){%>
-                        <%=habit.habitStatus[0].date.getHours()-12%> :
-                            <%=habit.habitStatus[0].date.getMinutes()%> PM
-
-                                <%}else{%>
-                                    <%=habit.habitStatus[0].date.getHours()%> :
-                                        <%=habit.habitStatus[0].date.getMinutes()%> AM
+<ul id="habits">
+    <%for(habit of habits){%>
+        <li id="<%=habit._id%>">
 
 
+
+            <span id="habitStatus">
+                <a href="/habit/changeStatus/<%=habit._id%>/0">
+
+                    <%if(habit.habitStatus[0].status=='done'){%>
+                        ✅
+                        <%}else if(habit.habitStatus[0].status=='not_done' ){%>
+                            ❌
+                            <%}else if(habit.habitStatus[0].status=='none' ){%>
+                                ⬛️
+                                <%}%>
+                </a>
+            </span>
+            <span id="habitName">
+                <%=habit.habitName%>
+            </span>
+            <span id="delete">
+                <a href="/habit/destroy/<%=habit._id%>"><img width="25" height="25"
+                        src="https://img.icons8.com/external-vectorslab-glyph-vectorslab/53/ABABAB/external-dustbin-office-supplies-vectorslab-glyph-vectorslab.png"
+                        alt="external-dustbin-office-supplies-vectorslab-glyph-vectorslab" /></a>
+            </span>
+
+            <span id="date">
+                <%if(habit.habitStatus[0].date.getHours()>12){%>
+                    <%=habit.habitStatus[0].date.getHours()-12%> :
+                        <%=habit.habitStatus[0].date.getMinutes()%> PM
+
+                            <%}else{%>
+                                <%if(habit.habitStatus[0].date.getHours()==0){%>
+                                    habit.habitStatus[0].date.getHours() :
+                                    <%}else{%>
+                                        <%=habit.habitStatus[0].date.getHours()%> :
                                             <%}%>
-                </span>
+                                                <%=habit.habitStatus[0].date.getMinutes()%> AM
 
-            </li>
-            <%}%>
 
-    </ul>
+                                                    <%}%>
+            </span>
+
+
+        </li>
+        <%}%>
+
+</ul>

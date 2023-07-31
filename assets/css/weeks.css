@@ -1,19 +1,33 @@
-span{
-    margin-right: 5%;
-}
-b{
-    width: 10%;
-    padding: 5px;
-}
 
 #Dates{
-    width: 40%;
-    margin: auto;
+    width: 65%;
+    margin-left: 26%;
+}
+#Dates span{
+    color: rgb(94, 126, 160);
+    font-size: 1.4rem;
+    width: 12%;
+    display: inline-block;
+    margin-right: 0;
 }
 .week-status{
-    width: 40%;
+    width: 80%;
     margin: auto;
+    margin-top: 2rem;
 }
 .week-status span{
-    margin-right: 7%;
+    /* margin-right: 7.4%; */
+} 
+.week-status #name{
+    font-size: 2rem;
+    display: inline-block;
+    padding: 5px;
+    color: rgb(94, 126, 160);
+    width: 210px ;
+    margin: 0;
+}
+.week-status #status span{
+    width: 9%;
+    text-align: center;
+    display: inline-block;
 }

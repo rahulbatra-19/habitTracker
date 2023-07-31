@@ -1,0 +1,20 @@
+form input{
+    background-color: rgb(110, 118, 126);
+    padding: 10px;
+    /* width: 30%; */
+    margin-top: 3%;
+    border: none;
+    border-radius: 30px;
+    font-size: larger;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 40%;
+}
+form input[type="submit"]{
+    width: 30%;
+    margin: auto;
+    margin-top: 3%;
+}
