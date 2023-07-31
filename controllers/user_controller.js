@@ -68,11 +68,4 @@ module.exports.destroySession = function (req, res) {
     return res.redirect('/');
 } 
 
-module.exports.signOut = async function(req, res){
-    req.logout(function (err) {
-        if (err) { return next(err); }
-    });
-    // req.flash('success', 'Logged out successfully!');
-    return res.redirect('/');
-}
 
