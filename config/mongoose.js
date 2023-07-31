@@ -9,7 +9,7 @@ main().catch(err => console.log('Error connecting to db', err));
 // connect to database 
 async function main()
 {
-    await mongoose.connect(`mongodb://localhost/habitTracker_db`);
+    await mongoose.connect(`mongodb://localhost/habitTrackers_db`);
 }
 
 // acquire the connection (to check if it is successfull)

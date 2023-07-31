@@ -7,6 +7,8 @@ router.get('/', userController.signIn);
 router.get('/sign-up', userController.signUp);
 router.use('/users', require('./users'));
 router.use('/habit', require('./habit'));
+router.get('/sign-out', userController.signOut);
+
 
 
 module.exports = router;

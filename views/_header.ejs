@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="/css/header.css">
+<p>
+    Habit Tracker
+<%if(locals.user){%>
+    <a href="/habit">Daily view</a>
+    <a href="/habit/week">Week View</a>
+    <a href="/habit"><%=locals.user.username%></a>
+    <a href="/sign-out">Sign Out</a>
+    <%}else{%>
+        <a href="/">Sign In</a>
+        <a href="/sign-up">Sign Up</a>
+        <%}%>
+
+</p>

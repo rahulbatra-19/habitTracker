@@ -38,8 +38,15 @@ module.exports.create = async function (req, res) {
                 console.log('Passwords do not match');
                 return res.redirect('back');
             } else {
+                console.log(req.body.username);
+                let user = await new User({
+                    username : req.body.username,
+                    password : req.body.password
+                });
+                user.save();
+                // console.log(user);
                 console.log("User created!!");
-                await User.create(req.body);
+
                 return res.redirect('/');
             }
         }
@@ -49,17 +56,6 @@ module.exports.create = async function (req, res) {
 }
 
 module.exports.createSession =  function (req, res) {
-    // try {
-    //     let user = await User.findOne(req.body);
-    //     if (user) {
-    //         return res.redirect('/habit');
-    //     } else {
-    //         console.log('Please create a User first ');
-    //         return res.redirect('/sign-up');
-    //     }
-    // } catch (err) {
-    //     console.log('Error in sign in ', err);
-    // }
     res.redirect('/habit');
 }
 
@@ -71,3 +67,12 @@ module.exports.destroySession = function (req, res) {
     });
     return res.redirect('/');
 } 
+
+module.exports.signOut = async function(req, res){
+    req.logout(function (err) {
+        if (err) { return next(err); }
+    });
+    // req.flash('success', 'Logged out successfully!');
+    return res.redirect('/');
+}
+

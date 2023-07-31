@@ -41,7 +41,7 @@ app.set('views', './views');
         maxAge: (1000*60*100)
     },
     store: MongoStore.create({
-        mongoUrl: 'mongodb://localhost/habitTracker_db',
+        mongoUrl: 'mongodb://localhost/habitTrackers_db',
         autoRemove: 'disabled'
     },
     function (err) {

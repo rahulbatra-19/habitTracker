@@ -3,8 +3,8 @@ const Habit = require('../models/habit');
 
 module.exports.createHabit = async function (req, res) {
     try {
-        console.log(res.locals);
-        let habitexist = await Habit.findOne({ habitName: req.body.habitName });
+        console.log(req.user);
+        let habitexist = await Habit.findOne({user : req.user, habitName: req.body.habitName });
         if (habitexist) {
             return res.redirect('back');
         } else {
@@ -18,8 +18,8 @@ module.exports.createHabit = async function (req, res) {
                     }
                 ]
             });
-            console.log('Habit created');
-            console.log(habit);
+            // console.log('Habit created');
+            // console.log(habit);
 
             res.render('home', {
                 title: "home",
@@ -85,25 +85,25 @@ module.exports.weeks = async function (req, res) {
     }
 }
 
-// cron.schedule('0 0 * * * * *', async () => {
-//     try {
-//         const habits = await Habit.find();
-//         const today = new Date();
-//         for (let habit of habits) {
-//             let newdayHabit = {
-//                 date: today,
-//                 status: 'none'
-//             };
-//             if (habit.habitStatus.length < 7) {
-//                 habit.habitStatus.unshift(newdayHabit);
-//             } else {
-//                 habit.habitStatus.splice(6, 1);
-//                 habit.habitStatus.unshift(newdayHabit);
-//             }
-//             console.log(habit);
-//             habit.save();
-//         }
-//     } catch (error) {
-//         console.error('Error updating habitStatus:', error);
-//     }
-// });
+cron.schedule('0 0 * * * * *', async () => {
+    try {
+        const habits = await Habit.find();
+        const today = new Date();
+        for (let habit of habits) {
+            let newdayHabit = {
+                date: today,
+                status: 'none'
+            };
+            if (habit.habitStatus.length < 7) {
+                habit.habitStatus.unshift(newdayHabit);
+            } else {
+                habit.habitStatus.splice(6, 1);
+                habit.habitStatus.unshift(newdayHabit);
+            }
+            console.log(habit);
+            habit.save();
+        }
+    } catch (error) {
+        console.error('Error updating habitStatus:', error);
+    }
+});

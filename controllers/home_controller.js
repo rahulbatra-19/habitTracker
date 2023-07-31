@@ -6,7 +6,7 @@ module.exports.home = async function(req, res){
             return res.redirect('/');
         }
 
-        let habits = await Habit.find({user: req.user}).sort('-createdAt');
+        let habits = await Habit.find({user: req.user});
 
         for(let habit of habits ){
             // console.log(habit);s
