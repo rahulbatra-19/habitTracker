@@ -6,7 +6,7 @@ This is a simple habit tracker app that allows users to track their daily habits
 
 Folder Structure
 
-habit-tracker-app/
+habitTracker/
   ├── controllers/
   |   ├── habit_controller.js
   |   └── user_controller.js
@@ -48,7 +48,7 @@ habit-tracker-app/
 
   
 How to Start the Project
-Clone the repository: git clone https://github.com/your-username/habit-tracker-app.git
+
 Navigate to the project folder: cd habit-tracker-app
 Install dependencies: npm install
 Create a .env file by renaming .env.example and set your environment variables.
