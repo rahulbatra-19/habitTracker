@@ -46,13 +46,5 @@ habitTracker/
 
 
 
-  
-How to Start the Project
 
-Navigate to the project folder: cd habit-tracker-app
-Install dependencies: npm install
-Create a .env file by renaming .env.example and set your environment variables.
-Start the server: npm start
-Comments
-Comments have been added throughout the code to explain the purpose of functions, variables, and sections of the code. This helps to improve code readability and makes it easier for other developers to understand the codebase.
 
