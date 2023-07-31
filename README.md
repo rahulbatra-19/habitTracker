@@ -41,6 +41,12 @@ habit-tracker-app/
   ├── package-lock.json
   ├── .gitignore
   └── Readme.md
+
+
+
+
+
+  
 How to Start the Project
 Clone the repository: git clone https://github.com/your-username/habit-tracker-app.git
 Navigate to the project folder: cd habit-tracker-app
