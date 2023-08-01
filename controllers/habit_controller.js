@@ -62,7 +62,13 @@ module.exports.updateStatus = async function (req, res) {
         }
         habit.habitStatus[index].status = status;
         habit.save();
-        return res.redirect('back');
+        // return res.redirect('back');
+        return res.status(200).json({
+            message : 'Reaction Created',
+            data:{
+                status :status
+            }
+        });
 
     } catch (error) {
         console.log("Error in updating status,", error);

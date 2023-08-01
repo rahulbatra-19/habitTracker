@@ -11,7 +11,7 @@
 
 
             <span id="habitStatus">
-                <a href="/habit/changeStatus/<%=habit._id%>/0">
+                <a href="/habit/changeStatus/<%=habit._id%>/0" class="habit-status-link" data-value="<%=habit.habitStatus[0].status%>">
 
                     <%if(habit.habitStatus[0].status=='done'){%>
                         ✅

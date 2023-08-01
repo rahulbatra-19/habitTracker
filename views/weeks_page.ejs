@@ -14,7 +14,7 @@
     <span id="status">
     <%for(let i=0;i<habit.habitStatus.length;i++){%>
     <span>
-        <a href="/habit/changeStatus/<%=habit._id%>/<%=i%>">
+        <a href="/habit/changeStatus/<%=habit._id%>/<%=i%>" class="habit-status-link" data-value="<%=habit.habitStatus[i].status%>">
             <%if(habit.habitStatus[i].status=='done'){%>
                 ✅
                 <%}else if(habit.habitStatus[i].status=='not_done'){%>

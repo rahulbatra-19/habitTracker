@@ -23,8 +23,13 @@
     
 
     <%- script%>
+    <script src="/js/status.js"></script>  
+    <script>
+        $('.habit-status-link').each(function(){
+            let toggler = new ToggleStatus(this);
+        });
 
-     
+    </script>   
     
 </body>
 </html>
