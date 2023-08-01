@@ -1,6 +1,7 @@
 const cron = require('node-cron');
 const Habit = require('../models/habit');
 
+// This is to create a habit 
 module.exports.createHabit = async function (req, res) {
     try {
         console.log(req.user);
@@ -18,8 +19,7 @@ module.exports.createHabit = async function (req, res) {
                     }
                 ]
             });
-            // console.log('Habit created');
-            // console.log(habit);
+
 
             res.render('home', {
                 title: "home",
@@ -34,6 +34,7 @@ module.exports.createHabit = async function (req, res) {
 }
 
 
+// This is to destroy a habit
 module.exports.destroy = async function (req, res) {
     try {
         let habit = await Habit.findById(req.params.id);
@@ -45,6 +46,7 @@ module.exports.destroy = async function (req, res) {
     }
 }
 
+// This is to update the status of habit
 module.exports.updateStatus = async function (req, res) {
     try {
 
@@ -68,6 +70,7 @@ module.exports.updateStatus = async function (req, res) {
     }
 }
 
+// This is for the week view of habits
 module.exports.weeks = async function (req, res) {
 
     try {
@@ -85,6 +88,7 @@ module.exports.weeks = async function (req, res) {
     }
 }
 
+// This is to create a new habit everynight at 12:00Am
 cron.schedule('0 0 * * *', async () => {
     try {
         const habits = await Habit.find();

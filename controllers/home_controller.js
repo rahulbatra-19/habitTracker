@@ -1,5 +1,7 @@
 const Habit = require('../models/habit');
 
+
+// this is for home page when user has signed in
 module.exports.home = async function(req, res){
     try {
         if (!req.isAuthenticated()) {
@@ -8,11 +10,6 @@ module.exports.home = async function(req, res){
 
         let habits = await Habit.find({user: req.user});
 
-        for(let habit of habits ){
-            // console.log(habit);s
-            habit.save();
-        }
-        // console.log(habits);
         
         res.render('home',{
             title :"home" , 

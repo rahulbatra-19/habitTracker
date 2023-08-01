@@ -1,6 +1,6 @@
 const User = require('../models/user');
 
-
+// this is to sign in a user
 module.exports.signIn = async function (req, res) {
 
     if(req.isAuthenticated()){
@@ -10,6 +10,7 @@ module.exports.signIn = async function (req, res) {
         title: "Sign In page"
     });
 }
+// this is to sign up a user
 
 module.exports.signUp = async function (req, res) {
 
@@ -22,6 +23,7 @@ module.exports.signUp = async function (req, res) {
 }
 
 
+// this is to create a user after signing up
 
 module.exports.create = async function (req, res) {
     try {
@@ -55,12 +57,15 @@ module.exports.create = async function (req, res) {
     }
 }
 
+// this is to create a session after sign in from passport 
+
+
 module.exports.createSession =  function (req, res) {
     res.redirect('/habit');
 }
 
 
-
+// this is to destroy a sesssion
 module.exports.destroySession = function (req, res) {
     req.logout(err => {
         console.log(err);
