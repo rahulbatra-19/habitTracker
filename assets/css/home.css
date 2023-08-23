@@ -3,7 +3,7 @@ form{
     text-align: center;
 }
 form input[type="text"]{
-    background-color: rgb(94, 126, 160);
+    background-color: rgb(169, 180, 191);
     padding: 10px;
     width: 30%;
     border: none;
